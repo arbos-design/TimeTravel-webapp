@@ -134,7 +134,3 @@ Configuration Render recommandee :
 - Variable optionnelle : `MISTRAL_API_KEY`
 
 Si `MISTRAL_API_KEY` n'est pas configuree sur Render, le chatbot utilisera le mode demo local.
-
-## Contexte pedagogique
-
-Projet pedagogique M1/M2 autour d'une experience web interactive enrichie par des contenus generes avec IA. Les destinations, tarifs et mentions legales sont fictifs.
