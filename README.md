@@ -1,8 +1,6 @@
 # TimeTravel Agency - Webapp Interactive
 
-Webapp immersive pour une agence fictive de voyage temporel, realisee dans le cadre d'un TP M1/M2 Digital & IA.
-
-Ce depot est la version individuelle a rendre. Il doit etre lance et deploye separement du site Vercel original.
+Webapp immersive pour une agence fictive de voyage temporel, realisee dans le cadre d'un TP M1 Digital & IA.
 
 ## Stack technique
 
@@ -49,11 +47,8 @@ Le mode demo permet de lancer et tester le projet sans compte API. Il fonctionne
 
 ## Outils IA et assets
 
-- Code initial : projet genere/assiste via Bolt.new et Claude 3.5 Sonnet par l'ancien groupe.
-- Chatbot runtime : Mistral AI uniquement si une cle API est fournie.
+- Code initial : Agent Codex et ChatGPT
 - Visuels et videos : assets generes pour le TP, stockes dans `public/images`.
-
-Claude est donc une trace historique de production, pas une dependance technique du projet.
 
 ## Installation locale
 
@@ -112,16 +107,10 @@ Voir `.env.example`.
 MISTRAL_API_KEY=
 ```
 
-Cette variable est optionnelle. Elle active les reponses Mistral dans le chatbot. Si elle est absente, l'API retourne des reponses locales de demonstration basees sur l'intention de la question.
-
 ## Deploiement Render
 
-Cette version individuelle devra etre deployee sur une nouvelle URL Render independante.
-
-Le site Vercel original existe deja ici :
-
 ```bash
-https://timetravelwebsite.vercel.app/
+https://timetravel-webapp.onrender.com/
 ```
 
 Cette URL correspond a une version existante du projet et ne doit pas etre utilisee comme URL de rendu individuel.
@@ -132,5 +121,3 @@ Configuration Render recommandee :
 - Build Command : `npm install && npm run build`
 - Start Command : `npm run start`
 - Variable optionnelle : `MISTRAL_API_KEY`
-
-Si `MISTRAL_API_KEY` n'est pas configuree sur Render, le chatbot utilisera le mode demo local.
