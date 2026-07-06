@@ -3,19 +3,29 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-gold: #c9a84c;
-  --color-copper: #b85c2a;
-  --color-jungle: #1a3a2a;
-  --font-sans: var(--font-inter);
-  --font-cinzel: var(--font-cinzel);
+  --color-dark-green: #1F2614;
+  --color-cream: #F2E8D5;
+  --color-brown: #735634;
+  --color-taupe: #A68053;
+  --color-sand: #D9BB96;
+  --color-gold: var(--color-sand);
+  --color-copper: var(--color-taupe);
+  --color-jungle: var(--color-dark-green);
+  --font-sans: var(--font-montserrat);
+  --font-cinzel: var(--font-montserrat);
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --gold: #c9a84c;
-  --copper: #b85c2a;
-  --jungle: #1a3a2a;
+  --color-dark-green: #1F2614;
+  --color-cream: #F2E8D5;
+  --color-brown: #735634;
+  --color-taupe: #A68053;
+  --color-sand: #D9BB96;
+  --background: var(--color-dark-green);
+  --foreground: var(--color-cream);
+  --gold: var(--color-sand);
+  --copper: var(--color-taupe);
+  --jungle: var(--color-dark-green);
 }
 
 body {
@@ -97,21 +107,21 @@ body {
 .vortex-ring-1 {
   width: 600px;
   height: 600px;
-  border-color: rgba(201, 168, 76, 0.15);
+  border-color: rgba(217, 187, 150, 0.18);
   animation: vortex-rotate 12s linear infinite;
 }
 
 .vortex-ring-2 {
   width: 900px;
   height: 900px;
-  border-color: rgba(184, 92, 42, 0.1);
+  border-color: rgba(166, 128, 83, 0.14);
   animation: vortex-rotate 18s linear infinite reverse;
 }
 
 .vortex-ring-3 {
   width: 1200px;
   height: 1200px;
-  border-color: rgba(26, 58, 42, 0.2);
+  border-color: rgba(115, 86, 52, 0.22);
   animation: vortex-rotate 24s linear infinite;
 }
 
@@ -125,8 +135,8 @@ body {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(201, 168, 76, 0.08) 0%,
-    rgba(184, 92, 42, 0.05) 40%,
+    rgba(217, 187, 150, 0.12) 0%,
+    rgba(166, 128, 83, 0.08) 40%,
     transparent 70%
   );
   animation: vortex-pulse 4s ease-in-out infinite;
@@ -141,12 +151,12 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--color-dark-green);
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9a84c40;
+  background: #A6805366;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c9a84c80;
+  background: #D9BB9699;
 }

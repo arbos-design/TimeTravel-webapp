@@ -9,14 +9,6 @@ Tu connais parfaitement :
 
 Tu guides les clients vers la réservation sur le site. Si on te demande un danger, tu rassures sur les protocoles de sécurité temporelle.`;
 
-const DEMO_RESPONSES = [
-  "Bonjour ! Je suis votre guide temporel personnel. Nos trois destinations phares sont le Crétacé (-65 Ma), Florence 1504 et Paris 1889. Quelle époque vous attire le plus ?",
-  "Nos protocoles de sécurité temporelle sont irréprochables. Chaque voyageur est équipé d'un bouclier chronologique et accompagné d'un guide expert. Votre retour dans le présent est garanti à 100%.",
-  "Nos tarifs varient selon la destination : Le Crétacé à 15 000€/personne, Florence 1504 à 8 500€/personne, et Paris 1889 à 6 000€/personne. Tous nos forfaits incluent l'hébergement et l'accompagnement personnalisé.",
-  "Pour réserver, rendez-vous dans la section 'Réserver' de notre site. Choisissez votre destination, vos dates et le nombre de voyageurs. Votre aventure temporelle commence en quelques clics !",
-];
-
-let demoIndex = 0;
 const MAX_MESSAGE_LENGTH = 2000;
 const MAX_MESSAGES = 20;
 
@@ -75,6 +67,102 @@ function validateMessages(body: unknown): ChatMessage[] | string {
   return sanitizedMessages;
 }
 
+function normalizeText(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function hasAnyKeyword(text: string, keywords: string[]) {
+  return keywords.some((keyword) => text.includes(keyword));
+}
+
+function getLastUserMessage(messages: ChatMessage[]) {
+  return messages
+    .filter((message) => message.role === "user")
+    .at(-1)?.content ?? "";
+}
+
+function getDemoReply(messages: ChatMessage[]) {
+  const question = normalizeText(getLastUserMessage(messages));
+  const mentionsParis = hasAnyKeyword(question, [
+    "paris",
+    "1889",
+    "belle epoque",
+    "tour eiffel",
+    "eiffel",
+    "exposition universelle",
+  ]);
+  const mentionsCretaceous = hasAnyKeyword(question, [
+    "cretace",
+    "dinosaure",
+    "dinosaures",
+    "prehistorique",
+    "nature",
+    "t-rex",
+    "trex",
+  ]);
+  const mentionsFlorence = hasAnyKeyword(question, [
+    "florence",
+    "renaissance",
+    "michel-ange",
+    "michel ange",
+    "leonard",
+    "art",
+  ]);
+
+  if (hasAnyKeyword(question, ["prix", "tarif", "budget", "cout", "combien"])) {
+    if (mentionsParis) {
+      return "Paris 1889 est notre escapade la plus accessible, à 6 000€/personne. C'est une immersion élégante dans la Belle Époque, entre Tour Eiffel, Exposition Universelle et Paris en pleine modernisation.";
+    }
+
+    if (mentionsFlorence) {
+      return "Florence 1504 est proposée à 8 500€/personne. Le tarif reflète une expérience culturelle premium : ateliers d'art, rencontres Renaissance et immersion dans la vie florentine.";
+    }
+
+    if (mentionsCretaceous) {
+      return "Le Crétacé est notre voyage le plus exclusif, à 15 000€/personne. L'encadrement renforcé, le safari sécurisé et les protocoles de protection expliquent ce budget plus élevé.";
+    }
+
+    return "Nos tarifs sont de 6 000€/personne pour Paris 1889, 8 500€/personne pour Florence 1504 et 15 000€/personne pour le Crétacé. Chaque formule inclut l'accompagnement temporel et les protocoles de sécurité.";
+  }
+
+  if (hasAnyKeyword(question, ["securite", "danger", "assurance", "risque", "protection", "retour"])) {
+    return "Votre sécurité est notre priorité absolue. Chaque voyageur bénéficie d'un encadrement expert, d'un protocole de retour contrôlé et d'une protection chronologique adaptée à l'époque visitée.";
+  }
+
+  if (hasAnyKeyword(question, ["reservation", "reserver", "date", "formulaire", "inscription", "depart"])) {
+    return "La réservation se fait depuis la section « Réserver ». Vous choisissez la destination, les dates, le nombre de voyageurs et votre niveau d'expérience, puis une référence de réservation est générée.";
+  }
+
+  if (hasAnyKeyword(question, ["conseil", "recommander", "recommande", "choisir", "quelle epoque", "destination"])) {
+    return "Pour une première expérience, je recommande Paris 1889 : spectaculaire, accessible et très confortable. Pour l'art et l'élégance, Florence 1504 est idéale. Pour l'adrénaline pure, le Crétacé reste incomparable.";
+  }
+
+  if (hasAnyKeyword(question, ["duree", "temps", "voyage", "experience", "sejour"])) {
+    return "Chaque voyage est pensé comme une expérience courte mais intense : assez longue pour ressentir l'époque, assez maîtrisée pour préserver votre confort et votre sécurité temporelle.";
+  }
+
+  if (mentionsParis) {
+    return "Paris 1889 vous plonge dans la Belle Époque, au moment de l'Exposition Universelle et de l'inauguration de la Tour Eiffel. C'est une destination lumineuse, urbaine et parfaite pour découvrir la naissance du monde moderne.";
+  }
+
+  if (mentionsCretaceous) {
+    return "Le Crétacé est notre destination la plus spectaculaire : nature primitive, dinosaures, observation scientifique et safari T-Rex sécurisé. C'est le choix idéal pour les voyageurs attirés par l'aventure.";
+  }
+
+  if (mentionsFlorence) {
+    return "Florence 1504 est une immersion raffinée dans la Renaissance italienne. Vous y découvrez les ateliers des maîtres, l'effervescence artistique et l'élégance d'une ville qui réinvente l'histoire de l'art.";
+  }
+
+  if (hasAnyKeyword(question, ["agence", "timetravel", "time travel", "qui etes", "comment ca marche", "service"])) {
+    return "TimeTravelAgency est une agence fictive de voyage temporel premium. Nous proposons des expériences historiques immersives, guidées et sécurisées, avec trois époques phares : Paris 1889, Florence 1504 et le Crétacé.";
+  }
+
+  return "Je peux vous guider sur nos destinations, les tarifs, la sécurité ou la réservation. Nos trois expériences phares sont Paris 1889, Florence 1504 et le Crétacé.";
+}
+
 async function callMistral(messages: ChatMessage[]): Promise<string> {
   const res = await fetch("https://api.mistral.ai/v1/chat/completions", {
     method: "POST",
@@ -131,8 +219,7 @@ export async function POST(req: NextRequest) {
       reply = await callMistral(messages);
     } else {
       // Local demo mode used when no Mistral key is configured.
-      reply = DEMO_RESPONSES[demoIndex % DEMO_RESPONSES.length];
-      demoIndex++;
+      reply = getDemoReply(messages);
     }
 
     return NextResponse.json({ reply });

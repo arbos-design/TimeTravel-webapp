@@ -36,7 +36,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="experience" className="py-24 px-4 bg-[#0d0d0d]">
+    <section id="experience" className="py-24 px-4 bg-brown/25">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -45,11 +45,11 @@ export default function HowItWorks() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <p className="text-[#c9a84c] text-sm tracking-[0.4em] uppercase mb-4">
+          <p className="text-sand text-sm tracking-[0.4em] uppercase mb-4">
             Le processus
           </p>
           <h2
-            className="font-cinzel text-4xl sm:text-5xl font-bold text-white"
+            className="font-cinzel text-4xl sm:text-5xl font-bold text-cream"
             style={{ fontFamily: "var(--font-cinzel)" }}
           >
             Comment ça marche
@@ -71,7 +71,7 @@ export default function HowItWorks() {
                   delay: index * 0.15,
                 }}
                 whileHover={{ scale: 1.03 }}
-                className="relative p-6 rounded-xl border border-[#c9a84c]/15 bg-[#111] hover:border-[#c9a84c]/40 transition-all duration-300 group cursor-default"
+                className="relative p-6 rounded-xl border border-sand/20 bg-dark-green/70 hover:border-sand/45 transition-all duration-300 group cursor-default"
               >
                 {/* Step number */}
                 <motion.div
@@ -79,30 +79,30 @@ export default function HowItWorks() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                  className="text-5xl font-black text-[#c9a84c]/10 group-hover:text-[#c9a84c]/20 transition-colors duration-300 mb-4 font-cinzel"
+                  className="text-5xl font-black text-sand/15 group-hover:text-sand/25 transition-colors duration-300 mb-4 font-cinzel"
                   style={{ fontFamily: "var(--font-cinzel)" }}
                 >
                   {step.number}
                 </motion.div>
 
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-[#c9a84c]/10 flex items-center justify-center mb-4 group-hover:bg-[#c9a84c]/20 transition-colors duration-300">
-                  <Icon className="text-[#c9a84c]" size={22} />
+                <div className="w-12 h-12 rounded-lg bg-taupe/20 flex items-center justify-center mb-4 group-hover:bg-taupe/30 transition-colors duration-300">
+                  <Icon className="text-sand" size={22} />
                 </div>
 
                 <h3
-                  className="font-cinzel text-lg font-bold text-white mb-3"
+                  className="font-cinzel text-lg font-bold text-cream mb-3"
                   style={{ fontFamily: "var(--font-cinzel)" }}
                 >
                   {step.title}
                 </h3>
-                <p className="text-[#ededed]/60 text-sm leading-relaxed">
+                <p className="text-sand/75 text-sm leading-relaxed">
                   {step.description}
                 </p>
 
                 {/* Connector line (desktop only) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-[#c9a84c]/30" />
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-sand/35" />
                 )}
               </motion.div>
             );

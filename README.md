@@ -45,7 +45,7 @@ Fonctionnement :
 - si aucune cle n'est definie, le projet utilise un fallback local de demonstration ;
 - aucune dependance technique a OpenAI, Groq, Anthropic ou Claude n'est integree dans le code d'execution actuel.
 
-Le mode demo permet de lancer et tester le projet sans compte API.
+Le mode demo permet de lancer et tester le projet sans compte API. Il fonctionne comme une FAQ locale simple : il detecte les intentions principales de la question, par exemple Paris 1889, le Cretace, Florence 1504, les tarifs, la securite ou la reservation.
 
 ## Outils IA et assets
 
@@ -70,7 +70,7 @@ Optionnel : creer un fichier `.env.local` a partir du modele :
 Copy-Item .env.example .env.local
 ```
 
-Puis renseigner `MISTRAL_API_KEY` si vous voulez utiliser Mistral. Sans cle, le chatbot reste fonctionnel en mode demo.
+Puis renseigner `MISTRAL_API_KEY` si vous voulez utiliser Mistral. Sans cle, le chatbot reste fonctionnel en mode demo local.
 
 ## Commandes disponibles
 
@@ -112,7 +112,7 @@ Voir `.env.example`.
 MISTRAL_API_KEY=
 ```
 
-Cette variable est optionnelle. Elle active les reponses Mistral dans le chatbot. Si elle est absente, l'API retourne des reponses locales de demonstration.
+Cette variable est optionnelle. Elle active les reponses Mistral dans le chatbot. Si elle est absente, l'API retourne des reponses locales de demonstration basees sur l'intention de la question.
 
 ## Deploiement Render
 

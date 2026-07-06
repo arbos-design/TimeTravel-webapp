@@ -24,7 +24,7 @@ function TypingDots() {
       {[0, 1, 2].map((i) => (
         <motion.span
           key={i}
-          className="w-1.5 h-1.5 rounded-full bg-[#c9a84c]"
+          className="w-1.5 h-1.5 rounded-full bg-sand"
           animate={{ opacity: [0.3, 1, 0.3], y: [0, -3, 0] }}
           transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
         />
@@ -96,7 +96,7 @@ export default function FloatingChat() {
         animate={{ scale: 1 }}
         transition={{ delay: 1.5, type: "spring" }}
         onClick={() => setOpen((prev) => !prev)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#c9a84c] text-black shadow-lg shadow-[#c9a84c]/30 flex items-center justify-center hover:bg-[#e4c06e] transition-colors duration-300"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-taupe text-dark-green shadow-lg shadow-taupe/30 flex items-center justify-center hover:bg-sand transition-colors duration-300"
         aria-label="Ouvrir le chat"
       >
         <AnimatePresence mode="wait">
@@ -133,33 +133,33 @@ export default function FloatingChat() {
             exit={{ opacity: 0, scale: 0.88, y: 16 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             style={{ transformOrigin: "bottom right" }}
-            className="fixed bottom-24 right-6 z-50 w-[340px] h-[460px] rounded-2xl overflow-hidden shadow-2xl shadow-black/70 border border-[#c9a84c]/20 flex flex-col bg-[#0f0f0f]"
+            className="fixed bottom-24 right-6 z-50 w-[340px] h-[460px] rounded-2xl overflow-hidden shadow-2xl shadow-black/70 border border-sand/25 flex flex-col bg-dark-green"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#111]/80 border-b border-[#c9a84c]/15 flex-shrink-0 backdrop-blur-sm">
+            <div className="flex items-center justify-between px-4 py-3 bg-brown/35 border-b border-sand/20 flex-shrink-0 backdrop-blur-sm">
               <div className="flex items-center gap-2.5">
                 <div className="relative">
-                  <div className="w-7 h-7 rounded-full bg-[#c9a84c]/15 border border-[#c9a84c]/30 flex items-center justify-center">
-                    <MessageCircle size={13} className="text-[#c9a84c]" />
+                  <div className="w-7 h-7 rounded-full bg-taupe/20 border border-sand/35 flex items-center justify-center">
+                    <MessageCircle size={13} className="text-sand" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#111]" />
+                  <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-sand border-2 border-dark-green" />
                 </div>
                 <div>
                   <p
-                    className="text-xs font-bold text-[#c9a84c] leading-tight"
+                    className="text-xs font-bold text-sand leading-tight"
                     style={{ fontFamily: "var(--font-cinzel)" }}
                   >
                     Guide Temporel
                   </p>
-                  <p className="text-[10px] text-emerald-500/70 flex items-center gap-1">
-                    <span className="w-1 h-1 rounded-full bg-emerald-500 inline-block" />
+                  <p className="text-[10px] text-sand/75 flex items-center gap-1">
+                    <span className="w-1 h-1 rounded-full bg-sand inline-block" />
                     En ligne
                   </p>
                 </div>
               </div>
               <Link
                 href="/chat"
-                className="text-[#ededed]/30 hover:text-[#c9a84c] transition-colors p-1"
+                className="text-sand/50 hover:text-cream transition-colors p-1"
                 title="Ouvrir en plein écran"
               >
                 <Maximize2 size={14} />
@@ -170,7 +170,7 @@ export default function FloatingChat() {
             <div className="flex-1 overflow-y-auto p-3 space-y-4">
               {messages.length === 0 && (
                 <div className="text-center py-4">
-                  <p className="text-[#ededed]/40 text-xs mb-4 leading-relaxed">
+                  <p className="text-sand/65 text-xs mb-4 leading-relaxed">
                     Bonjour ! Comment puis-je vous aider dans votre voyage temporel ?
                   </p>
                   {!started && (
@@ -182,7 +182,7 @@ export default function FloatingChat() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.08, duration: 0.3 }}
                           onClick={() => sendMessage(s)}
-                          className="text-xs text-left px-3 py-2 rounded-lg border border-[#c9a84c]/15 text-[#ededed]/55 hover:border-[#c9a84c]/45 hover:text-[#c9a84c] hover:bg-[#c9a84c]/5 transition-all duration-200"
+                          className="text-xs text-left px-3 py-2 rounded-lg border border-sand/20 text-sand/70 hover:border-sand/55 hover:text-cream hover:bg-taupe/15 transition-all duration-200"
                         >
                           {s}
                         </motion.button>
@@ -204,8 +204,8 @@ export default function FloatingChat() {
                     <div
                       className={`max-w-[85%] rounded-xl px-3.5 py-2.5 text-xs ${
                         msg.role === "user"
-                          ? "bg-[#c9a84c] text-black font-medium rounded-tr-sm leading-relaxed"
-                          : "bg-[#1a1a1a] text-[#ededed]/80 border border-[#c9a84c]/10 rounded-tl-sm"
+                          ? "bg-taupe text-dark-green font-medium rounded-tr-sm leading-relaxed"
+                          : "bg-brown/35 text-cream/85 border border-sand/15 rounded-tl-sm"
                       }`}
                     >
                       {msg.role === "assistant" ? (
@@ -228,7 +228,7 @@ export default function FloatingChat() {
                     transition={{ duration: 0.2 }}
                     className="flex justify-start"
                   >
-                    <div className="bg-[#1a1a1a] border border-[#c9a84c]/10 rounded-xl rounded-tl-sm px-3.5 py-2.5">
+                    <div className="bg-brown/35 border border-sand/15 rounded-xl rounded-tl-sm px-3.5 py-2.5">
                       <TypingDots />
                     </div>
                   </motion.div>
@@ -241,7 +241,7 @@ export default function FloatingChat() {
             {/* Input */}
             <form
               onSubmit={handleSubmit}
-              className="flex items-center gap-2 p-3 border-t border-[#c9a84c]/15 flex-shrink-0 bg-[#111]"
+              className="flex items-center gap-2 p-3 border-t border-sand/20 flex-shrink-0 bg-brown/35"
             >
               <input
                 ref={inputRef}
@@ -255,13 +255,13 @@ export default function FloatingChat() {
                   }
                 }}
                 placeholder="Votre question..."
-                className="flex-1 bg-[#0f0f0f] border border-[#c9a84c]/15 rounded-lg px-3 py-2 text-xs text-[#ededed] placeholder-[#ededed]/25 focus:outline-none focus:border-[#c9a84c]/40 transition-colors"
+                className="flex-1 bg-dark-green/70 border border-sand/20 rounded-lg px-3 py-2 text-xs text-cream placeholder-sand/45 focus:outline-none focus:border-sand/55 transition-colors"
               />
               <motion.button
                 type="submit"
                 disabled={!input.trim() || loading}
                 whileTap={{ scale: 0.9 }}
-                className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#c9a84c] text-black disabled:opacity-35 disabled:cursor-not-allowed hover:bg-[#e4c06e] transition-colors flex-shrink-0"
+                className="w-8 h-8 flex items-center justify-center rounded-lg bg-taupe text-dark-green disabled:opacity-35 disabled:cursor-not-allowed hover:bg-sand transition-colors flex-shrink-0"
               >
                 <Send size={13} />
               </motion.button>

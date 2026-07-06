@@ -25,7 +25,7 @@ export default function MessageContent({ text }: { text: string }) {
     const parts = str.split(/(\*\*[^*]+\*\*)/g);
     return parts.map((part, i) => {
       if (part.startsWith("**") && part.endsWith("**")) {
-        return <strong key={i} className="font-semibold text-[#e8d4a0]">{part.slice(2, -2)}</strong>;
+        return <strong key={i} className="font-semibold text-sand">{part.slice(2, -2)}</strong>;
       }
       return part;
     });
@@ -39,7 +39,7 @@ export default function MessageContent({ text }: { text: string }) {
     if (numberedMatch) {
       listItems.push(
         <li key={i} className="flex gap-2.5 items-start">
-          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#c9a84c]/20 text-[#c9a84c] text-[10px] font-bold flex items-center justify-center mt-0.5">
+          <span className="flex-shrink-0 w-5 h-5 rounded-full bg-taupe/25 text-sand text-[10px] font-bold flex items-center justify-center mt-0.5">
             {numberedMatch[1]}
           </span>
           <span>{parseBold(numberedMatch[2])}</span>
@@ -53,7 +53,7 @@ export default function MessageContent({ text }: { text: string }) {
     if (bulletMatch) {
       listItems.push(
         <li key={i} className="flex gap-2.5 items-start">
-          <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#c9a84c] mt-2" />
+          <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-sand mt-2" />
           <span>{parseBold(bulletMatch[1])}</span>
         </li>
       );

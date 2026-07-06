@@ -25,7 +25,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/90 backdrop-blur-md border-b border-[#c9a84c]/20"
+          ? "bg-dark-green/92 backdrop-blur-md border-b border-sand/20"
           : "bg-transparent"
       }`}
     >
@@ -34,11 +34,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <Clock
-              className="text-[#c9a84c] transition-transform group-hover:rotate-12 duration-500"
+              className="text-sand transition-transform group-hover:rotate-12 duration-500"
               size={24}
             />
             <span
-              className="font-cinzel text-lg font-bold text-[#c9a84c] tracking-widest"
+              className="font-cinzel text-lg font-bold text-sand tracking-widest"
               style={{ fontFamily: "var(--font-cinzel)" }}
             >
               TimeTravelAgency
@@ -51,14 +51,14 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[#ededed]/80 hover:text-[#c9a84c] transition-colors duration-300 tracking-wider uppercase"
+                className="text-sm font-medium text-cream/80 hover:text-sand transition-colors duration-300 tracking-wider uppercase"
               >
                 {link.label}
               </a>
             ))}
             <Link
               href="/chat"
-              className="px-5 py-2 border border-[#c9a84c] text-[#c9a84c] text-sm font-medium tracking-wider uppercase rounded hover:bg-[#c9a84c] hover:text-black transition-all duration-300"
+              className="px-5 py-2 border border-sand text-sand text-sm font-medium tracking-wider uppercase rounded hover:bg-taupe hover:border-taupe hover:text-dark-green transition-all duration-300"
             >
               Commencer le voyage
             </Link>
@@ -66,7 +66,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-[#c9a84c] p-2"
+            className="md:hidden text-sand p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -83,7 +83,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/95 backdrop-blur-md border-t border-[#c9a84c]/20"
+            className="md:hidden bg-dark-green/95 backdrop-blur-md border-t border-sand/20"
           >
             <div className="px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -91,7 +91,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-[#ededed]/80 hover:text-[#c9a84c] transition-colors py-2 text-lg tracking-wider"
+                  className="text-cream/80 hover:text-sand transition-colors py-2 text-lg tracking-wider"
                 >
                   {link.label}
                 </a>
@@ -99,7 +99,7 @@ export default function Header() {
               <Link
                 href="/chat"
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 px-5 py-3 border border-[#c9a84c] text-[#c9a84c] text-center font-medium tracking-wider uppercase rounded hover:bg-[#c9a84c] hover:text-black transition-all duration-300"
+                className="mt-2 px-5 py-3 border border-sand text-sand text-center font-medium tracking-wider uppercase rounded hover:bg-taupe hover:border-taupe hover:text-dark-green transition-all duration-300"
               >
                 Commencer le voyage
               </Link>

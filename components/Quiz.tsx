@@ -80,19 +80,19 @@ const destinationResults: Record<
   cretace: {
     name: "Le Crétacé",
     tagline: "Quand les géants dominaient la Terre.",
-    color: "#4ade80",
+    color: "#D9BB96",
     image: "/images/cretace.jpg",
   },
   florence: {
     name: "Florence 1504",
     tagline: "L'âge d'or de l'art et de l'humanisme.",
-    color: "#c9a84c",
+    color: "#F2E8D5",
     image: "/images/florence.jpg",
   },
   paris: {
     name: "Paris 1889",
     tagline: "À l'aube du monde moderne.",
-    color: "#b85c2a",
+    color: "#A68053",
     image: "/images/paris.jpg",
   },
 };
@@ -137,7 +137,7 @@ export default function Quiz() {
   };
 
   return (
-    <section className="py-24 px-4 bg-[#0a0a0a]">
+    <section className="py-24 px-4 bg-dark-green">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -146,11 +146,11 @@ export default function Quiz() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center mb-12"
         >
-          <p className="text-[#c9a84c] text-sm tracking-[0.4em] uppercase mb-4">
+          <p className="text-sand text-sm tracking-[0.4em] uppercase mb-4">
             Trouvez votre voyage
           </p>
           <h2
-            className="font-cinzel text-4xl sm:text-5xl font-bold text-white"
+            className="font-cinzel text-4xl sm:text-5xl font-bold text-cream"
             style={{ fontFamily: "var(--font-cinzel)" }}
           >
             Quiz de recommandation
@@ -170,7 +170,7 @@ export default function Quiz() {
               >
                 {/* Progress bar */}
                 <div className="mb-8">
-                  <div className="flex justify-between text-xs text-[#ededed]/40 mb-2">
+                  <div className="flex justify-between text-xs text-sand/65 mb-2">
                     <span>
                       Question {currentQuestion + 1} / {questions.length}
                     </span>
@@ -181,9 +181,9 @@ export default function Quiz() {
                       %
                     </span>
                   </div>
-                  <div className="h-1 bg-[#ffffff]/10 rounded-full overflow-hidden">
+                  <div className="h-1 bg-cream/10 rounded-full overflow-hidden">
                     <motion.div
-                      className="h-full bg-[#c9a84c] rounded-full"
+                      className="h-full bg-taupe rounded-full"
                       initial={{ width: 0 }}
                       animate={{
                         width: `${((currentQuestion + 1) / questions.length) * 100
@@ -195,7 +195,7 @@ export default function Quiz() {
                 </div>
 
                 <h3
-                  className="font-cinzel text-2xl sm:text-3xl font-bold text-white mb-8 text-center"
+                  className="font-cinzel text-2xl sm:text-3xl font-bold text-cream mb-8 text-center"
                   style={{ fontFamily: "var(--font-cinzel)" }}
                 >
                   {questions[currentQuestion].question}
@@ -208,7 +208,7 @@ export default function Quiz() {
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
                       onClick={() => handleAnswer(answer.scores as Record<Destination, number>)}
-                      className="p-5 rounded-xl border border-[#c9a84c]/20 bg-[#111] hover:border-[#c9a84c] hover:bg-[#c9a84c]/5 text-[#ededed] hover:text-[#c9a84c] transition-all duration-300 text-sm font-medium flex items-center justify-between gap-2 group"
+                      className="p-5 rounded-xl border border-sand/20 bg-brown/30 hover:border-sand hover:bg-taupe/15 text-cream hover:text-sand transition-all duration-300 text-sm font-medium flex items-center justify-between gap-2 group"
                     >
                       <span>{answer.label}</span>
                       <ArrowRight
@@ -250,7 +250,7 @@ export default function Quiz() {
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: `linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 60%)`,
+                      background: `linear-gradient(to top, rgba(31,38,20,0.68) 0%, transparent 60%)`,
                     }}
                   />
                 </motion.div>
@@ -261,7 +261,7 @@ export default function Quiz() {
                   transition={{ delay: 0.3, duration: 0.5 }}
                   className="mb-8"
                 >
-                  <p className="text-[#ededed]/60 text-sm tracking-widest uppercase mb-4">
+                  <p className="text-sand/75 text-sm tracking-widest uppercase mb-4">
                     Votre destination idéale
                   </p>
                   <motion.h3
@@ -280,7 +280,7 @@ export default function Quiz() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="text-[#ededed]/70 text-lg"
+                    className="text-cream/75 text-lg"
                   >
                     {destinationResults[result].tagline}
                   </motion.p>
@@ -294,14 +294,14 @@ export default function Quiz() {
                 >
                   <a
                     href="#reserver"
-                    className="px-8 py-3 font-semibold text-black text-sm tracking-wider uppercase rounded transition-all duration-300 hover:opacity-90"
+                    className="px-8 py-3 font-semibold text-dark-green text-sm tracking-wider uppercase rounded transition-all duration-300 hover:opacity-90"
                     style={{ backgroundColor: destinationResults[result].color }}
                   >
                     Réserver cette destination
                   </a>
                   <button
                     onClick={reset}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-[#ededed]/20 text-[#ededed]/60 hover:text-[#ededed] hover:border-[#ededed]/40 text-sm font-medium rounded transition-all duration-300"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-sand/30 text-sand/75 hover:text-cream hover:border-sand/60 text-sm font-medium rounded transition-all duration-300"
                   >
                     <RotateCcw size={14} />
                     Recommencer

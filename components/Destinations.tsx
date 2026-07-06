@@ -18,12 +18,12 @@ const destinations = [
     ],
     profile: "Aventure – Adrénaline – Exploration",
     profileIcon: Zap,
-    profileColor: "#1a3a2a",
-    profileTextColor: "#4ade80",
+    profileColor: "#1F2614",
+    profileTextColor: "#D9BB96",
     image: "/images/cretace.jpg",
-    gradientFrom: "#0a1a0f",
-    gradientTo: "#1a3a2a",
-    accentColor: "#4ade80",
+    gradientFrom: "#1F2614",
+    gradientTo: "#735634",
+    accentColor: "#D9BB96",
   },
   {
     id: "florence",
@@ -37,12 +37,12 @@ const destinations = [
     ],
     profile: "Culture – Élégance – Histoire",
     profileIcon: Palette,
-    profileColor: "#3a2a00",
-    profileTextColor: "#c9a84c",
+    profileColor: "#735634",
+    profileTextColor: "#F2E8D5",
     image: "/images/florence.jpg",
-    gradientFrom: "#1a1200",
-    gradientTo: "#3a2a00",
-    accentColor: "#c9a84c",
+    gradientFrom: "#1F2614",
+    gradientTo: "#735634",
+    accentColor: "#D9BB96",
   },
   {
     id: "paris",
@@ -56,12 +56,12 @@ const destinations = [
     ],
     profile: "Découverte – Innovation – Patrimoine",
     profileIcon: Landmark,
-    profileColor: "#3a1a00",
-    profileTextColor: "#b85c2a",
+    profileColor: "#A68053",
+    profileTextColor: "#1F2614",
     image: "/images/paris.jpg",
-    gradientFrom: "#1a0a00",
-    gradientTo: "#3a1a00",
-    accentColor: "#b85c2a",
+    gradientFrom: "#1F2614",
+    gradientTo: "#A68053",
+    accentColor: "#A68053",
   },
 ];
 
@@ -76,11 +76,11 @@ export default function Destinations() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="text-center py-20 px-4"
       >
-        <p className="text-[#c9a84c] text-sm tracking-[0.4em] uppercase mb-4">
+        <p className="text-sand text-sm tracking-[0.4em] uppercase mb-4">
           Nos destinations
         </p>
         <h2
-          className="font-cinzel text-4xl sm:text-5xl font-bold text-white"
+          className="font-cinzel text-4xl sm:text-5xl font-bold text-cream"
           style={{ fontFamily: "var(--font-cinzel)" }}
         >
           Choisissez votre époque
@@ -169,12 +169,12 @@ function DestinationCard({
 
           {/* Text content: bottom on mobile, left on desktop */}
           <div className="flex-1 min-w-0 md:order-1 w-full">
-            <p className="text-[#ededed]/60 text-sm tracking-widest uppercase mb-2">
+            <p className="text-sand/75 text-sm tracking-widest uppercase mb-2">
               {dest.period}
             </p>
 
             <h3
-              className="font-cinzel text-4xl sm:text-5xl font-bold text-white mb-4"
+              className="font-cinzel text-4xl sm:text-5xl font-bold text-cream mb-4"
               style={{ fontFamily: "var(--font-cinzel)" }}
             >
               {dest.name}
@@ -189,7 +189,7 @@ function DestinationCard({
 
             <ul className="space-y-2 mb-6">
               {dest.experiences.map((exp) => (
-                <li key={exp} className="flex items-center gap-2 text-[#ededed]/80 text-sm">
+                <li key={exp} className="flex items-center gap-2 text-cream/85 text-sm">
                   <span
                     className="w-1.5 h-1.5 rounded-full shrink-0"
                     style={{ backgroundColor: dest.accentColor }}
@@ -217,7 +217,7 @@ function DestinationCard({
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium tracking-wider uppercase rounded"
                 style={{
                   backgroundColor: dest.accentColor,
-                  color: "#0a0a0a",
+                  color: "#1F2614",
                 }}
                 whileHover={{ scale: 1.04, gap: "12px" }}
                 whileTap={{ scale: 0.97 }}

@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-dark-green">
       {/* Video background */}
       <video
         autoPlay
@@ -26,14 +26,14 @@ export default function Hero() {
         <div className="vortex-ring vortex-ring-3" />
 
         {/* Dark overlay to keep text readable */}
-        <div className="absolute inset-0 bg-[#0a0a0a]/60" />
+        <div className="absolute inset-0 bg-dark-green/65" />
 
         {/* Radial gradient overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, rgba(10,10,10,0.5) 60%, #0a0a0a 100%)",
+              "radial-gradient(ellipse at center, rgba(217,187,150,0.08) 0%, rgba(31,38,20,0.55) 60%, #1F2614 100%)",
           }}
         />
 
@@ -42,7 +42,7 @@ export default function Hero() {
           className="absolute inset-0 opacity-5"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(201,168,76,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.3) 1px, transparent 1px)",
+              "linear-gradient(rgba(217,187,150,0.26) 1px, transparent 1px), linear-gradient(90deg, rgba(217,187,150,0.26) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }}
         />
@@ -54,7 +54,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[#c9a84c] text-sm font-medium tracking-[0.4em] uppercase mb-6"
+          className="text-sand text-sm font-medium tracking-[0.4em] uppercase mb-6"
       >
           Agence de voyage temporel de luxe
         </motion.p>
@@ -63,13 +63,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="font-cinzel text-6xl sm:text-7xl md:text-8xl font-black text-white leading-tight mb-6"
+          className="font-cinzel text-6xl sm:text-7xl md:text-8xl font-black text-cream leading-tight mb-6"
           style={{ fontFamily: "var(--font-cinzel)" }}
         >
           Traversez
           <br />
           <motion.span
-            className="text-[#c9a84c] inline-block"
+            className="text-sand inline-block"
             initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.9, delay: 0.85, ease: "easeOut" }}
@@ -82,7 +82,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-          className="text-[#ededed]/70 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="text-sand/80 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           De l&apos;ère des dinosaures à la naissance du monde moderne.
         </motion.p>
@@ -95,13 +95,13 @@ export default function Hero() {
         >
           <a
             href="#destinations"
-            className="px-8 py-4 bg-[#c9a84c] text-black font-semibold tracking-widest uppercase rounded hover:bg-[#e4c06e] transition-all duration-300 text-sm shadow-lg shadow-[#c9a84c]/20"
+            className="px-8 py-4 bg-taupe text-dark-green font-semibold tracking-widest uppercase rounded hover:bg-sand transition-all duration-300 text-sm shadow-lg shadow-taupe/25"
           >
             Explorer les époques
           </a>
           <Link
             href="/chat"
-            className="px-8 py-4 border border-[#ededed]/40 text-[#ededed] font-medium tracking-widest uppercase rounded hover:border-[#c9a84c] hover:text-[#c9a84c] transition-all duration-300 text-sm"
+            className="px-8 py-4 border border-sand/50 text-cream font-medium tracking-widest uppercase rounded hover:border-sand hover:text-sand transition-all duration-300 text-sm"
           >
             Parler à un agent
           </Link>
@@ -113,7 +113,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#c9a84c]/60"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-sand/70"
       >
         <span className="text-xs tracking-widest uppercase">Découvrir</span>
         <div className="scroll-indicator">
